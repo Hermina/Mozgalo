@@ -1,0 +1,13 @@
+*.pyc
+datares/
+datares2/
+datares3/
+pycode/*.txt
+*.sqlite3
+aplikacija/scripts/*.txt
+aplikacija/modules/*.txt
+*.*~
+pyTools/
+pycode/files/
+pycode_backup/pycode/files/
+venv/lib/

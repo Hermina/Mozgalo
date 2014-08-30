@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+    <h1> Opis analiza nad podacima </h1>
+<ul>
+<li><a target="_blank" href="{{ BASE_URL }}/podaci/analysis_google"> Popularnost pive po gradovima </a>
+<br/></li>
+<li><a href="{{ BASE_URL }}/podaci/analysis_vs"> Dvoboj piva</a></li>
+<li><a href="{{ BASE_URL }}/podaci/analysis_basic"> Opća analiza</a></li>
+</ul>
+{% endblock %}

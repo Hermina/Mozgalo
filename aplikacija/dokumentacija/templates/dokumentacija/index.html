@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+<h1>Popis dokumentacije</h1>
+<ul>
+    <li><a href="{% static 'documentation/prikupljanje.pdf'%}">Prikupljanje podataka</a></li>
+     <li><a href="{% static 'documentation/dinamicka_obnova.pdf'%}">Dinamicka obnova podataka</a></li>
+      <li><a href="{% static 'documentation/django.pdf'%}">Python Django</a></li>
+       <li><a href="{% static 'documentation/skupovi_za_ucenje.pdf'%}">Odabiranje skupova za učenje</a></li>
+       <li><a href="{% static 'documentation/feature_selection.pdf'%}">Odabir značajki</a></li>
+       <li><a href="{% static 'documentation/SVD.pdf'%}">Singularna dekompozicija matrice</a></li>
+       <li><a href="{% static 'documentation/NaiveBayes.pdf'%}">Naive Bayes klasifikacija</a></li>
+        <li><a href="{% static 'documentation/ocjenjivanje.pdf'%}">Ocjenjivanje</a></li>
+        <li><a href="{% static 'documentation/recommender.pdf'%}">Recommender</a></li>
+        <li><a href="{% static 'documentation/tutorial.pdf'%}">Korisnička dokumentacija</a></li>
+</ul>
+{% endblock %}

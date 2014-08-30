@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+    <h1> Spremanje nije moguće pokušajte ponovo {{podatak}}<h1>
+    <a href ="{{ BASE_URL }}/podaci/ciljano"> pokusajte ponovo </a>
+{% endblock %}

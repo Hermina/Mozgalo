@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+    <h1> Analiza po kategorijama </h1>
+    <div class = "row">
+        <div class = "col-md-4">
+            <h1>Izgled:</h1>
+            {% for l, o in look%}
+                <p>{{forloop.counter}}. {{ l }} : {{o}}</p>
+            {% endfor %}
+        </div>
+        <div class = "col-md-4">
+            <h1>Miris:</h1>
+            {% for s, o in smell%}
+            <p>{{forloop.counter}}. {{ s }} : {{o}}</p>
+            {% endfor %}
+        </div>
+        <div class = "col-md-4">
+            <h1>Okus:</h1>
+            {% for t, o in taste%}
+            <p>{{forloop.counter}}. {{ t }} : {{o}}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class = "row">
+        <div class = "col-md-4">
+            <h1>Osjećaj:</h1>
+            {% for f, o in feel%}
+            <p>{{forloop.counter}}. {{ f }} : {{o}}</p>
+            {% endfor %}
+        </div>
+        <div class = "col-md-4">
+            <h1>Top 10:</h1>
+            {% for g, o in grade%}
+            <p>{{forloop.counter}}. {{ g }} : {{o}}</p>
+            {% endfor %}
+        </div>
+        <div class = "col-md-4">
+            <img border="5" src="{% static "img/sl1.jpg" %}" alt="" width="280" height="360">
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "js/d3.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/podaci/app.js" %}"></script>
+<style type="text/css">
+svg {
+  font-family: "Helvetica Neue", Helvetica;
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
+
+</style>
+<div id="bar1">
+<h3>Utjecaj kategorija okusa, mirisa, osjećaja i izgleda na ukupnu ocjenu najbolje pive:</h3>
+<script type="text/javascript">allBars("{% static "json/podaci/eggs.csv" %}")</script>
+</div>
+<div id="bar2">
+<h3>Usporedba 3 najbolje i 3 najlošije pive po kategorijama </h3>
+<script type="text/javascript">barOne("{% static "json/podaci/beer_grade.csv" %}")</script>
+</div>
+<div id="bar3">
+<h3>Prikaz popularnosti stranice Beer Advocate kroz vrijeme. <br/>
+Prvi komentar na stranici postavljen je 11.11.1997, a najveća popularnost se postiže u periodu od travnja 2008. do kolovoza 2011. godine.</h3>
+<img border="5" src="{% static "img/fulltime.png" %}" alt="" width="1050" height="560">
+</div>
+{% endblock %}

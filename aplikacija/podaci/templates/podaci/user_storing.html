@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h4> Ocjena kreiranog komentara: <h4>
+<p> {{comment}} </p>
+<br/>
+<ul>
+{% for r, c in result %}
+    <li> {{ c }} : {{ r }} </li>
+{% endfor %}
+</ul>
+{% endblock %}

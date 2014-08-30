@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+<form  action = "../analysis_vs_result"class="form-horizontal">
+<fieldset>
+<div style="position:center">
+<!-- Form Name -->
+<legend></legend>
+    <h1> Unesite dvije pive za koje želite usporediti rezultate: <h1>
+    <div class="form-group">
+  		<label class="col-md-4 control-label" for="selectbeer1">Odaberi pivo</label>
+  		<div class="col-md-4">
+    		<select id="selectbeer1" name="selectbeer1" class="form-control">
+        		{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        		{% for beer in beers %}
+        		<option value="{{ beer.id }}">{{ beer.name }}</option>
+        		{% endfor %}
+    </select>
+  </div>
+</div>
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbeer2">Odaberi pivo</label>
+  <div class="col-md-4">
+    <select id="selectbeer2" name="selectbeer2" class="form-control">
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for beer in beers %}
+        <option value="{{ beer.id }}">{{ beer.name }}</option>
+        {% endfor %}
+    </select>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sentButton">Pitaj sustav</label>
+  <div class="col-md-4">
+    <button id="sentButton" name="sentButton" class="btn btn-success">Upit</button>
+  </div>
+</div>
+</div>
+</fieldset>
+</form>
+{% endblock %}

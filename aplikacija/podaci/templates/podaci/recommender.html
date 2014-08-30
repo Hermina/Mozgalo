@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- @TODO ajax in div id result -> not redirect -->
+<script type="text/javascript">
+    function getResult () {
+        a  =$.ajax({
+            url: '/podaci/recommender_result/?'+$('form').serialize(),
+            type: 'GET',
+            data: {}
+        });
+        return a.responseText;
+        $('#result').text(a.responseText)
+    }
+</script>
+<h1> Recommender </h1>
+<form  action = "../recommender_result"class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend></legend>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbeer1">Odaberi pivo</label>
+  <div class="col-md-4">
+    <select id="selectbeer1" name="selectbeer1" class="form-control">
+        <option value="0">Nema izbora</option>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for beer in beers %}
+        <option value="{{ beer.id }}">{{ beer.name }}</option>
+        {% endfor %}
+    </select>
+  </div>
+</div>
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="beer1">Ocjena</label>
+  <div class="col-md-4">
+    <label class="radio-inline" for="beer1-0">
+      <input type="radio" name="beer1" id="beer1-0" value="1" checked="checked">
+      1
+    </label>
+    <label class="radio-inline" for="beer1-1">
+      <input type="radio" name="beer1" id="beer1-1" value="2">
+      2
+    </label>
+    <label class="radio-inline" for="beer1-2">
+      <input type="radio" name="beer1" id="beer1-2" value="3">
+      3
+    </label>
+    <label class="radio-inline" for="beer1-3">
+      <input type="radio" name="beer1" id="beer1-3" value="4">
+      4
+    </label>
+    <label class="radio-inline" for="beer1-4">
+      <input type="radio" name="beer1" id="beer1-4" value="5">
+      5
+    </label>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbeer2">Odaberi pivo</label>
+  <div class="col-md-4">
+    <select id="selectbeer2" name="selectbeer2" class="form-control">
+        <option value="0">Nema izbora</option>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for beer in beers %}
+        <option value="{{ beer.id }}">{{ beer.name }}</option>
+        {% endfor %}
+    </select>
+  </div>
+</div>
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="beer2">Ocjena</label>
+  <div class="col-md-4">
+    <label class="radio-inline" for="beer2-0">
+      <input type="radio" name="beer2" id="beer2-0" value="1" checked="checked">
+      1
+    </label>
+    <label class="radio-inline" for="beer2-1">
+      <input type="radio" name="beer2" id="beer2-1" value="2">
+      2
+    </label>
+    <label class="radio-inline" for="beer2-2">
+      <input type="radio" name="beer2" id="beer2-2" value="3">
+      3
+    </label>
+    <label class="radio-inline" for="beer2-3">
+      <input type="radio" name="beer2" id="beer2-3" value="4">
+      4
+    </label>
+    <label class="radio-inline" for="beer2-4">
+      <input type="radio" name="beer2" id="beer2-4" value="5">
+      5
+    </label>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbeer3">Odaberi pivo</label>
+  <div class="col-md-4">
+    <select id="selectbeer3" name="selectbeer3" class="form-control">
+        <option value="0">Nema izbora</option>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for beer in beers %}
+        <option value="{{ beer.id }}">{{ beer.name }}</option>
+        {% endfor %}
+    </select>
+  </div>
+</div>
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="beer3">Ocjena</label>
+  <div class="col-md-4">
+    <label class="radio-inline" for="beer3-0">
+      <input type="radio" name="beer3" id="beer3-0" value="1" checked="checked">
+      1
+    </label>
+    <label class="radio-inline" for="beer3-1">
+      <input type="radio" name="beer3" id="beer3-1" value="2">
+      2
+    </label>
+    <label class="radio-inline" for="beer3-2">
+      <input type="radio" name="beer3" id="beer3-2" value="3">
+      3
+    </label>
+    <label class="radio-inline" for="beer3-3">
+      <input type="radio" name="beer3" id="beer3-3" value="4">
+      4
+    </label>
+    <label class="radio-inline" for="beer3-4">
+      <input type="radio" name="beer3" id="beer3-4" value="5">
+      5
+    </label>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbeer4">Odaberi pivo</label>
+  <div class="col-md-4">
+    <select id="selectbeer4" name="selectbeer4" class="form-control">
+        <option value="0">Nema izbora</option>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for beer in beers %}
+        <option value="{{ beer.id }}">{{ beer.name }}</option>
+        {% endfor %}
+    </select>
+  </div>
+</div>
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="beer4">Ocjena</label>
+  <div class="col-md-4">
+    <label class="radio-inline" for="beer4-0">
+      <input type="radio" name="beer4" id="beer4-0" value="1" checked="checked">
+      1
+    </label>
+    <label class="radio-inline" for="beer4-1">
+      <input type="radio" name="beer4" id="beer4-1" value="2">
+      2
+    </label>
+    <label class="radio-inline" for="beer4-2">
+      <input type="radio" name="beer4" id="beer4-2" value="3">
+      3
+    </label>
+    <label class="radio-inline" for="beer4-3">
+      <input type="radio" name="beer4" id="beer4-3" value="4">
+      4
+    </label>
+    <label class="radio-inline" for="beer4-4">
+      <input type="radio" name="beer4" id="beer4-4" value="5">
+      5
+    </label>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbeer5">Odaberi pivo</label>
+  <div class="col-md-4">
+    <select id="selectbeer5" name="selectbeer5" class="form-control">
+        <option value="0">Nema izbora</option>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for beer in beers %}
+        <option value="{{ beer.id }}">{{ beer.name }}</option>
+        {% endfor %}
+    </select>
+  </div>
+</div>
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="beer5">Ocijana</label>
+  <div class="col-md-4">
+    <label class="radio-inline" for="beer5-0">
+      <input type="radio" name="beer5" id="beer5-0" value="1" checked="checked">
+      1
+    </label>
+    <label class="radio-inline" for="beer5-1">
+      <input type="radio" name="beer5" id="beer5-1" value="2">
+      2
+    </label>
+    <label class="radio-inline" for="beer5-2">
+      <input type="radio" name="beer5" id="beer5-2" value="3">
+      3
+    </label>
+    <label class="radio-inline" for="beer5-3">
+      <input type="radio" name="beer5" id="beer5-3" value="4">
+      4
+    </label>
+    <label class="radio-inline" for="beer5-4">
+      <input type="radio" name="beer5" id="beer5-4" value="5">
+      5
+    </label>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sentButton">Pitaj sustav</label>
+  <div class="col-md-4">
+    <button id="sentButton" name="sentButton" class="btn btn-success">Upit</button>
+  </div>
+</div>
+<div id="result">
+</div>
+</fieldset>
+</form>
+{% endblock %}

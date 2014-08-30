@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1> Ručna nadopuna podataka </h1>
+    <p> Postoji mogućnost odabira piva iz baze podataka. Također pravilnim izborom moguće je pokrenuti obnovu podataka samo za određeno pivo.</p>
+    <script>
+    function disable()
+    {
+    	document.getElementById("textarea").disabled=true;
+        document.getElementById("singlebutton").disabled=true;
+    }
+    function enable()
+    {
+    	document.getElementById("textarea").disabled=false;
+        document.getElementById("singlebutton").disabled=false
+    }
+    </script>
+    <form action="../spremi/" method="GET" class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Obnova podataka</legend>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="pivo">Pivo</label>
+              <div class="col-md-4">
+                <select id="pivo" name="pivo" class="form-control">
+                  {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                  {% for beer in beers %}
+                  <option value="{{ beer.id }}">{{ beer.name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+
+            <!-- Multiple Radios -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="nacin">Način obnove</label>
+              <div class="col-md-4">
+              <div class="radio">
+                <label for="nacin-0">
+                  <input type="radio" name="nacin" id="nacin-0" value="1" checked="checked" onclick="enable()">
+                  ručno
+                </label>
+                </div>
+              <div class="radio">
+                <label for="nacin-1">
+                  <input type="radio" name="nacin" id="nacin-1" value="2" onclick="disable(); alert('Pravo na akciju imaju samo administratori')">
+                  iz izvora
+                </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="textarea">Komentar</label>
+              <div class="col-md-4">
+                <textarea class="form-control" id="textarea" name="textarea">Unesi komentar</textarea>
+              </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="singlebutton">Spremi promjene</label>
+              <div class="col-md-4">
+                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Spremi</button>
+              </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+{% endblock %}

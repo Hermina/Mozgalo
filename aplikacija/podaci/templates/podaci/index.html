@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+<h1> Dobro došli na stranice Beer Analysis</h1>
+<br/>
+<br/>
+<h3> Priprema i analiza podataka </h3>
+<div class="row">
+        <div class="col-md-4">
+          <h2>Obnovi podatke</h2>
+          <p>U svakom trenutku moguće je pokrenuti simulaciju koja će sa izvora povući nove podatke koji su kreirani nakon zadnje obnove. Moguće je pokrenuti i potpunu onovu podataka. Detaljne upute oko postupka pokretanja možete pronaći <a href= "{{ BASE_URL }}/podaci/full_update">ovdje</a></p>
+          <p><a onclick="alert('Pristup dozvoljen samo administratoru')" class="btn btn-default"  hrerole="button">Obnova &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Pokreni ciljano</h2>
+          <p>Moguće je pokrenuti obnovu za točno ciljani resurs. Popis svih resursa možete vidjeti <a href="{{ BASE_URL }}/admin/podaci" target="_blank">ovdje</p>
+          <p><a class="btn btn-default" href="{{ BASE_URL }}/podaci/ciljano" role="button">Ciljana obnova &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Analiza podataka</h2>
+          <p>Analiza prikupljenih podataka i klasifikacija, odnosno rangiranje podataka. Analiza za svaki brend kroz određene vremenske intervala.  </p>
+          <p><a class="btn btn-default" href="{{ BASE_URL }}/podaci/analiza" role="button">Analiza podataka&raquo;</a></p>
+       </div>
+    </div>
+    <h3> Korisnička podrška </h3>
+    <div class="row">
+        <div class="col-md-4">
+          <h2>Wiki</h2>
+          <p>Popis tehnologija i alata korištenih u izradi algoritama i aplikacijskog sustava. </p>
+          <p><a class="btn btn-default" href="{{ BASE_URL }}/dokumentacija/wiki" role="button">Detalji &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Dokumentacija</h2>
+          <p>Dokumentacija namjenjena korisnicima i timovima koji bi nastavili razvoj i nadogradnju sustava. Korisnička dokumentacija sadrži sve upute kako pokrenuti i koristiti sustav. </p>
+          <p><a class="btn btn-default" href="{{ BASE_URL }}/dokumentacija" role="button">Dokumentacija &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Recommender</h2>
+          <p>Sustav vam može preporučiti pivo </p>
+          <p><a class="btn btn-default" href="{{ BASE_URL }}/podaci/recommender" role="button">Recommender &raquo;</a></p>
+        </div>
+    </div>
+
+    <!-- Light box -->
+
+    <script type="text/javascript">
+    function start()
+    {
+      document.getElementById("clicck").click()
+    }
+    </script>
+    <script src="{% static 'js/podaci/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'js/podaci/lightbox.min.js' %}"></script>
+    <link href="{% static 'css/lightbox.css' %}" rel="stylesheet" />
+
+<div class="image-set">
+    <a style="display:none" href="{% static 'img/demopage/4.jpg' %}" data-lightbox="roadtrip">Image #1</a>
+    <a style="display:none;" href="{% static 'img/demopage/2.jpg' %}" data- lightbox="roadtrip">Image #2</a>
+    <a style="display:none;"  href="{% static 'img/demopage/3.jpg' %}" data-lightbox="roadtrip">Image #3</a>
+    <a style="display:none;" href="{% static 'img/demopage/1.jpg' %}" data-lightbox="roadtrip">Image #4</a>
+    <a id= "clicck" style="display:none;" href="{% static 'img/demopage/5.jpg' %}" data-lightbox="roadtrip">Image #4</a>
+    <a style="display:none;" href="{% static 'img/demopage/6.jpg' %}" data-lightbox="roadtrip">Image #6</a>
+    <a style="display:none;" href="{% static 'img/demopage/7.jpg' %}" data-lightbox="roadtrip">Image #7</a>
+    <a style="display:none;" href="{% static 'img/demopage/8.jpg' %}" data-lightbox="roadtrip">Image #8</a>
+    <a style="display:none;" href="{% static 'img/demopage/9.jpg' %}" data-lightbox="roadtrip">Image #9</a>
+    <a style="display:none;" href="{% static 'img/demopage/10.jpg' %}" data-lightbox="roadtrip">Image #10</a>
+    <a style="display:none;" href="{% static 'img/demopage/11.jpg' %}" data-lightbox="roadtrip">Image #11</a>
+    <a style="display:none;" href="{% static 'img/demopage/12.jpg' %}" data-lightbox="roadtrip">Image #12</a>
+    <a style="display:none;" href="{% static 'img/demopage/13.jpg' %}" data-lightbox="roadtrip">Image #13</a>
+    <a style="display:none;" href="{% static 'img/demopage/14.jpg' %}" data-lightbox="roadtrip">Image #14</a>
+</div>
+<script type="text/javascript">
+  function ligth()
+  {
+    alert('Ovaj proces će potrajati neko vrijeme, molimo vas da ne koristite aplikaciju za vrijeme pokrenutog procesa. Također za potpunu obnovu potrebno je imati stalnu vezu s internetom.');
+    document.getElementById('clicck').click()
+    window.setTimeout(function(){
+        window.location.href = "{{ BASE_URL }}/podaci/update" ;
+    }, 3000);
+    //window.location = "{{ BASE_URL }}/podaci/recommender"
+  }
+</script>
+{% endblock %}

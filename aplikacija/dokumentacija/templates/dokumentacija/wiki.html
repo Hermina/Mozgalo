@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{{% block content %}
+<h1>Tehnologije i struktura aplikacije</h1>
+
+<h3> Tehnologije </h3>
+<p> Za realizaciju projekta korišteni su mnogi alati, najbitniji od njih navedeni su sa linkom na dokumentaciju i službenu stranicu <p>
+<ul>
+	<li><a href="https://www.python.org/">Python</a>-Za vecinu programskih rjesenja koristen je Python</li>
+    <li><a href="http://www.nltk.org/">Nltk</a>-Za procesiranje teksta i obradu prirodnog jezika koristen je Natural Language Toolkit za Python</li>
+    <li><a href="http://www.numpy.org/">Numpy</a>-Za brzu manipulaciju numerickim podacima koristen je Numerical python</li>
+    <li><a href="http://www.scipy.org/">Scipy</a>-Za racunanje nekih numerickih metoda poput SVD dekompozicije matrice koristen je Scientific Python</li>
+    <li><a href="http://getbootstrap.com/">Bootstrap</a>-Front-end i dizajn preuzet je od bootstrapa</li>
+    <li><a href="https://www.djangoproject.com/">Django</a>-Django framework korišten je za kreiranje servera i web stranica</li>
+    <li><a href="https://github.com/dsc/pyquery/">Pyquery</a>-Parsiranje web stranica efikasnim manipuliranjem DOM strukturom</li>
+    <li><a href="http://d3js.org/">D3js</a>-D3.js koristen je za prikaz podataka i generiranje grafova</li>
+</ul>
+
+<h3> Struktura sustava </h3>
+<p> Sustav se sastoji od velikog broja skripti i algoritama. Svi algotitmi kao i serverska strana aplikacije pisani su u programskom jeziku python. Za realizaciju su korišteni gore navedeni paketi, a sama struktura direktorija i datoteka izgleda ovako:</p>
+<ul>
+<li><b>aplikacija</b>
+<ul>
+<li><b>aplikacija</b> - podaci i skripte o aplikaciji, generirano od framework-a django</li>
+<li><b>podaci</b> - glavni direktoriji aplikacija, sadrži template za većinu prikaza i kombinira sve algoritme, svi prikazi generirani su u datoteci <b>views.py</b></li>
+<li><b>dokumentacija</b> -  generira prikaz dokumentacije i pregled wiki</li>
+<li><b>scripts</b> -  python skripte koje realiziraju aplikacije : recommender, dvoboj piva i ostale. Također tu se nalaze i statičke skripte koje se koriste za slučaj da sustav treba pokrenuti ispočetka( ocjenjivanje na bazi komentara, naknadno ocjenjivanje piva, otkrivanje grešaka)</li>
+<li><b>static</b> - js, csv, pdf, scc i ostale statičke datoteke</li>
+</ul></li>
+<li><b>pycode</b>
+<ul>
+<li><b>BAclass.py</b>- klasa koja se brine za parsiranje novih podataka spremljenih u txt datoteke</li>
+<li><b>bayes.py</b> - računa vjerojatnost pripadnosti određenim klasama s obzirom na učitanu rečenicu </li>
+<li><b>beeradvocate.py</b> - pomoću paketa pyquery parsira stranice i pronalati sve komentare o zadanim pivama</li>
+<li><b>beer_rater.py</b> - interface za aplikaciju. Aplikacija poziva funkcije ovog modula koji vraća rezultat na osnovu naučenih klasifikatora</li>
+<li><b>comment.py</b> -  klasa za spremanje komentara</li>
+<li><b>feature_selection.py</b> - modul s funkcijama za odabir feature-a(tf-idf, bigrami, frekvencije)</li>
+<li><b>load.py</b> - učitavanje gotovih struktura </li>
+<li><b>svd_class</b> - iplementacija SVD algoritma</li>
+<li><b>get_category_sentences.py</b> pronalazi kategorije za klasifikaciju</li>
+<li><b>train.py</b> - treniranje klasifikatora i odabir parametara</li>
+<li><b>files</b> - direktorij sa podacima koji su spremljeni za ponovnu upotrebu kao što su istreniranei klasifikatori i kategorije</li>
+</ul></li>
+<li> <b>datares, datares2, datares3 </b> - podaci o svim pivama u 3 kategorije(najbolje, najgore, najkomentiranije)</li>
+</ul>
+<p>Ostale datoteke i direktoriji su ili za test ili su backup datoteke tako da se niti u kojem smisli ne koriste za rad aplikacije.</p>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Preporuka</h1>
+{% for d, g in values%}
+    <p>{{forloop.counter}}. {{ d }} : {{ g }}<p>
+{% endfor %}
+{% endblock %}
+

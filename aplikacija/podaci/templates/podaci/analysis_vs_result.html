@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+    <h1> Informacije o promjenama <h1>
+    <h2> <b>{{beer1}}</b> vs. <b>{{beer2}}</b> </h2>
+    <br/>
+    <style>
+
+.bar.positive {
+  fill: steelblue;
+}
+
+.bar.negative {
+  fill: brown;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "js/d3.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/podaci/app.js" %}"></script>
+<div class="row">
+<div class="graph col-md-10">
+<script type="text/javascript">barThree("{% static "json/podaci/beer_vs.tsv" %}")</script>
+</div>
+<div class="col-md-2">
+<h4> Kategorije </h4>
+<br/>
+<br/>
+<p>Ukupni dojam</p>
+<br/>
+<br/>
+<br/>
+<p>Izgled</p>
+<br/>
+<br/>
+<br/>
+<p>Miris</p>
+<br/>
+<br/>
+<br/>
+<p>Okus</p>
+<br/>
+<br/>
+<br/>
+<p>Osjećaj</p>
+</div>
+</div>
+{% endblock %}
